@@ -1,0 +1,2930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vignan University - Academic Information Portal</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        /* =========================================================
+           ROOT VARIABLES
+        ========================================================= */
+
+        :root {
+            --red: #8b0000;
+            --dark-red: #5c0000;
+            --gold: #d4af37;
+            --navy: #0f172a;
+            --dark: #1e293b;
+            --slate: #475569;
+            --muted: #64748b;
+            --light: #f8fafc;
+            --border: #e2e8f0;
+            --white: #ffffff;
+            --blue: #2563eb;
+            --green: #059669;
+            --purple: #7c3aed;
+            --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        ::selection {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 20px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+
+        /* =========================================================
+           COMMON
+        ========================================================= */
+
+        .container {
+            width: min(1180px, calc(100% - 32px));
+            margin: auto;
+        }
+
+        .section {
+            padding: 90px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 55px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            padding: 7px 14px;
+            border-radius: 50px;
+            background: #fff1f2;
+            color: var(--red);
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 16px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(30px, 4vw, 44px);
+            line-height: 1.15;
+            color: var(--navy);
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            font-size: 16px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            border-radius: 12px;
+            padding: 13px 20px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.25s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-red {
+            background: var(--red);
+            color: white;
+            box-shadow: 0 8px 20px rgba(139, 0, 0, 0.18);
+        }
+
+        .btn-red:hover {
+            background: var(--dark-red);
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .btn-light {
+            background: white;
+            color: var(--navy);
+            border-color: var(--border);
+        }
+
+        .card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+        }
+
+
+        /* =========================================================
+           TOP BAR
+        ========================================================= */
+
+        .topbar {
+            background: var(--dark-red);
+            color: white;
+            padding: 9px 0;
+            font-size: 12px;
+        }
+
+        .topbar-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .top-left,
+        .top-right {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .topbar i {
+            color: var(--gold);
+            margin-right: 5px;
+        }
+
+        .grade-badge {
+            background: var(--gold);
+            color: #111827;
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 11px;
+        }
+
+        .top-link:hover {
+            color: var(--gold);
+        }
+
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        header {
+            background: rgba(255,255,255,0.97);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+        }
+
+        .header-inner {
+            min-height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 280px;
+        }
+
+        .logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--red), var(--dark-red));
+            color: white;
+            display: grid;
+            place-items: center;
+            font-weight: 800;
+            font-size: 20px;
+            box-shadow: 0 8px 20px rgba(139,0,0,0.2);
+            flex-shrink: 0;
+        }
+
+        .brand-title {
+            font-size: 14px;
+            font-weight: 800;
+            line-height: 1.25;
+            color: var(--navy);
+        }
+
+        .brand-subtitle {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: .6px;
+            color: var(--muted);
+            margin-top: 3px;
+        }
+
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .nav-link {
+            padding: 10px 12px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--slate);
+            transition: .2s ease;
+        }
+
+       .nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--slate);
+    transition: .2s ease;
+    white-space: nowrap;
+}
+
+.nav-link i {
+    font-size: 9px;
+    line-height: 1;
+    display: inline-block;
+}
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 0;
+            width: 270px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            box-shadow: 0 20px 45px rgba(15,23,42,.14);
+            padding: 8px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(8px);
+            transition: .2s ease;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            padding: 11px 12px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--slate);
+        }
+
+        .dropdown-item i {
+            width: 20px;
+            color: var(--red);
+        }
+
+        .dropdown-item:hover {
+            background: #fff1f2;
+            color: var(--red);
+        }
+
+        .header-action {
+            white-space: nowrap;
+        }
+
+        /* CSS-only mobile menu */
+        .mobile-toggle {
+            display: none;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 95px 0;
+            color: white;
+            background:
+                radial-gradient(circle at 80% 20%, rgba(212,175,55,.15), transparent 28%),
+                radial-gradient(circle at 10% 80%, rgba(37,99,235,.15), transparent 30%),
+                linear-gradient(135deg, #0f172a, #1e293b 55%, #5c0000);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            opacity: .08;
+            background-image: radial-gradient(#fff 1px, transparent 1px);
+            background-size: 18px 18px;
+        }
+
+        .hero-grid {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1.15fr .85fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 50px;
+            background: rgba(255,255,255,.08);
+            border: 1px solid rgba(255,255,255,.18);
+            color: var(--gold);
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 5.5vw, 70px);
+            line-height: 1.03;
+            letter-spacing: -2px;
+            margin-bottom: 22px;
+            font-weight: 800;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero-description {
+            max-width: 680px;
+            color: #cbd5e1;
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .hero .btn-light {
+            background: rgba(255,255,255,.08);
+            border-color: rgba(255,255,255,.2);
+            color: white;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero .btn-light:hover {
+            background: rgba(255,255,255,.16);
+        }
+
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        .quick-card {
+            min-height: 170px;
+            padding: 22px;
+            border-radius: 22px;
+            border: 1px solid rgba(255,255,255,.16);
+            background: rgba(255,255,255,.07);
+            backdrop-filter: blur(14px);
+            transition: .25s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .quick-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,.12);
+        }
+
+        .quick-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            color: var(--gold);
+            background: rgba(212,175,55,.12);
+            font-size: 18px;
+        }
+
+        .quick-card h3 {
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .quick-card p {
+            font-size: 11px;
+            color: #cbd5e1;
+        }
+
+
+        /* =========================================================
+           PROGRAMS
+        ========================================================= */
+
+        .filter-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 35px;
+        }
+
+        .filter-link {
+            padding: 10px 16px;
+            border-radius: 12px;
+            background: white;
+            border: 1px solid var(--border);
+            color: var(--slate);
+            font-size: 12px;
+            font-weight: 700;
+            transition: .2s ease;
+        }
+
+        .filter-link:hover {
+            background: var(--red);
+            color: white;
+            border-color: var(--red);
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .program-card {
+            padding: 25px;
+            min-height: 285px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: .25s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 40px rgba(15,23,42,.12);
+        }
+
+        .program-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 50px;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .tag-red {
+            background: #fff1f2;
+            color: var(--red);
+        }
+
+        .tag-blue {
+            background: #eff6ff;
+            color: var(--blue);
+        }
+
+        .tag-gold {
+            background: #fffbeb;
+            color: #b45309;
+        }
+
+        .tag-purple {
+            background: #f5f3ff;
+            color: var(--purple);
+        }
+
+        .duration {
+            font-size: 11px;
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .program-card h3 {
+            font-size: 17px;
+            line-height: 1.35;
+            margin-bottom: 10px;
+            color: var(--navy);
+        }
+
+        .program-card p {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        .program-bottom {
+            border-top: 1px solid #f1f5f9;
+            margin-top: 20px;
+            padding-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .eligibility {
+            font-size: 10px;
+            color: var(--muted);
+        }
+
+        .details-link {
+            color: var(--red);
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+
+        /* =========================================================
+           SCHOOLS
+        ========================================================= */
+
+        .school-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .school-card {
+            padding: 30px;
+            transition: .25s ease;
+        }
+
+        .school-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .school-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: #fff1f2;
+            color: var(--red);
+            display: grid;
+            place-items: center;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .school-card h3 {
+            font-size: 19px;
+            color: var(--navy);
+            margin-bottom: 10px;
+            line-height: 1.35;
+        }
+
+        .school-card p {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 22px;
+        }
+
+        .school-bottom {
+            border-top: 1px solid #f1f5f9;
+            padding-top: 14px;
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            font-size: 10px;
+            color: var(--muted);
+            font-weight: 700;
+        }
+
+        .school-bottom a {
+            color: var(--red);
+        }
+
+
+        /* =========================================================
+           ASSESSMENTS
+        ========================================================= */
+
+        .assessment-grid {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 25px;
+        }
+
+        .content-card {
+            padding: 30px;
+        }
+
+        .content-card h3 {
+            color: var(--navy);
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        th {
+            background: #f1f5f9;
+            color: var(--slate);
+            padding: 13px;
+            text-align: left;
+        }
+
+        td {
+            padding: 13px;
+            border-bottom: 1px solid #f1f5f9;
+            color: var(--muted);
+        }
+
+        td:first-child {
+            font-weight: 800;
+            color: var(--red);
+        }
+
+        .assessment-box {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 12px;
+        }
+
+        .assessment-box h4 {
+            color: var(--navy);
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .assessment-box p {
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+
+        /* =========================================================
+           CALENDAR
+        ========================================================= */
+
+        .calendar-card {
+            padding: 30px;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .calendar-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .calendar-tab {
+            padding: 11px 18px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--slate);
+        }
+
+        .calendar-tab:hover {
+            background: var(--red);
+            color: white;
+        }
+
+        .timeline {
+            position: relative;
+            border-left: 2px solid #fecaca;
+            padding-left: 25px;
+            margin-left: 10px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 32px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: var(--red);
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px #fecaca;
+            left: -33px;
+            top: 3px;
+        }
+
+        .timeline-date {
+            font-size: 11px;
+            color: var(--red);
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .timeline-item h4 {
+            color: var(--navy);
+            font-size: 15px;
+            margin-top: 4px;
+        }
+
+
+        /* =========================================================
+           POLICIES
+        ========================================================= */
+
+        .policy-list {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            gap: 15px;
+        }
+
+        .policy-card {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .policy-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .policy-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 13px;
+            background: #fff1f2;
+            color: var(--red);
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+        }
+
+        .policy-info h3 {
+            color: var(--navy);
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .policy-info p {
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+
+        /* =========================================================
+           WHY CHOOSE US
+        ========================================================= */
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 35px 25px;
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
+            background: #fff1f2;
+            color: var(--red);
+            display: grid;
+            place-items: center;
+            margin: auto auto 20px;
+            font-size: 24px;
+        }
+
+        .feature-card h3 {
+            color: var(--navy);
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+
+        /* =========================================================
+           REGULATIONS
+        ========================================================= */
+
+        .accordion-list {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            gap: 12px;
+        }
+
+        details {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(15,23,42,.04);
+            overflow: hidden;
+        }
+
+        summary {
+            cursor: pointer;
+            list-style: none;
+            padding: 20px;
+            font-weight: 800;
+            color: var(--navy);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: "\f078";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: #94a3b8;
+            transition: .2s ease;
+        }
+
+        details[open] summary::after {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            border-top: 1px solid #f1f5f9;
+            padding: 18px 20px 22px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .accordion-content ul {
+            margin: 10px 0 0 20px;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            background: #0f172a;
+            color: white;
+            margin-top: 30px;
+            padding: 65px 0 25px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 45px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 11px;
+            background: var(--red);
+            display: grid;
+            place-items: center;
+            font-weight: 800;
+        }
+
+        .footer-title {
+            font-weight: 800;
+            font-size: 17px;
+        }
+
+        .footer-text {
+            color: #94a3b8;
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .footer-column h4 {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 11px;
+            margin-bottom: 15px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #94a3b8;
+            font-size: 12px;
+            margin-bottom: 9px;
+            transition: .2s;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .copyright {
+            border-top: 1px solid #1e293b;
+            padding-top: 20px;
+            text-align: center;
+            color: #64748b;
+            font-size: 11px;
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 1100px) {
+
+            .desktop-nav {
+                display: none;
+            }
+
+            .header-action {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .mobile-toggle label {
+                cursor: pointer;
+                width: 45px;
+                height: 45px;
+                border-radius: 12px;
+                background: #f8fafc;
+                border: 1px solid var(--border);
+                display: grid;
+                place-items: center;
+                color: var(--red);
+                font-size: 20px;
+            }
+
+            #menu-toggle:checked ~ .mobile-menu {
+                display: block;
+            }
+
+            .mobile-menu {
+                border-top: 1px solid var(--border);
+                background: white;
+                padding: 12px 16px 18px;
+            }
+
+            .mobile-menu a {
+                display: block;
+                padding: 11px 12px;
+                border-radius: 10px;
+                font-size: 13px;
+                font-weight: 600;
+                color: var(--slate);
+            }
+
+            .mobile-menu a:hover {
+                background: #fff1f2;
+                color: var(--red);
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .program-grid,
+            .school-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .assessment-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+
+        @media (max-width: 700px) {
+
+            .container {
+                width: min(100% - 24px, 1180px);
+            }
+
+            .topbar-inner {
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .top-left,
+            .top-right {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .brand-title {
+                font-size: 12px;
+            }
+
+            .brand-subtitle {
+                font-size: 8px;
+            }
+
+            .logo {
+                width: 43px;
+                height: 43px;
+                font-size: 17px;
+            }
+
+            .hero {
+                padding: 65px 0;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+                letter-spacing: -1.5px;
+            }
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+            .quick-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .quick-card {
+                min-height: 145px;
+                padding: 17px;
+            }
+
+            .section {
+                padding: 65px 0;
+            }
+
+            .program-grid,
+            .school-grid,
+            .features-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .program-card,
+            .school-card {
+                padding: 22px;
+            }
+
+            .policy-card {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .policy-card .btn {
+                width: 100%;
+            }
+
+            .calendar-card,
+            .content-card {
+                padding: 20px;
+            }
+
+            .calendar-tabs {
+                flex-direction: column;
+            }
+
+            .calendar-tab {
+                width: 100%;
+            }
+
+            table {
+                min-width: 560px;
+            }
+
+            .table-wrapper {
+                overflow-x: auto;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- ============================================================
+     TOP BAR
+============================================================ -->
+
+<div class="topbar">
+    <div class="container topbar-inner">
+
+        <div class="top-left">
+            <span>
+                <i class="fa-solid fa-phone"></i>
+                +91 863-2344700 / 701
+            </span>
+
+            <span>
+                <i class="fa-solid fa-envelope"></i>
+                info@vignan.ac.in
+            </span>
+        </div>
+
+        <div class="top-right">
+
+            <span class="grade-badge">
+                NAAC 'A+' Grade
+            </span>
+
+            <a href="#assessments" class="top-link">
+                Student Assessment Portal
+            </a>
+
+            <a href="#policies" class="top-link">
+                Handbooks
+            </a>
+
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ============================================================
+     HEADER
+============================================================ -->
+
+<header>
+
+    <div class="container header-inner">
+
+        <a href="#home" class="brand">
+
+            <div class="logo">
+                VU
+            </div>
+
+            <div>
+                <div class="brand-title">
+                    Vignan's Foundation for Science,
+                    Technology & Research
+                </div>
+
+                <div class="brand-subtitle">
+                    Deemed to be University, Vadlamudi, Guntur
+                </div>
+            </div>
+
+        </a>
+
+
+        <nav class="desktop-nav">
+
+            <a href="#home" class="nav-link active">
+                Home
+            </a>
+
+
+            <div class="dropdown">
+
+                <a href="#programs" class="nav-link">
+                    Academics
+                    <i class="fa-solid fa-chevron-down"
+                       style="font-size:9px;"></i>
+                </a>
+
+                <div class="dropdown-menu">
+
+                    <a href="#programs" class="dropdown-item">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        Programs Offered
+                    </a>
+
+                    <a href="#schools" class="dropdown-item">
+                        <i class="fa-solid fa-building-columns"></i>
+                        Schools & Departments
+                    </a>
+
+                    <a href="#assessments" class="dropdown-item">
+                        <i class="fa-solid fa-file-lines"></i>
+                        Assessments & Exams
+                    </a>
+
+                    <a href="#calendar" class="dropdown-item">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        Academic Calendar
+                    </a>
+
+                    <a href="#policies" class="dropdown-item">
+                        <i class="fa-solid fa-book"></i>
+                        Policies & Handbooks
+                    </a>
+
+                    <a href="#whychooseus" class="dropdown-item">
+                        <i class="fa-solid fa-star"></i>
+                        Why Choose Us?
+                    </a>
+
+                    <a href="#regulations" class="dropdown-item">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                        Regulations
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <a href="#programs" class="nav-link">
+                Programs
+            </a>
+
+            <a href="#schools" class="nav-link">
+                Schools
+            </a>
+
+            <a href="#calendar" class="nav-link">
+                Calendar
+            </a>
+
+            <a href="#regulations" class="nav-link">
+                Regulations
+            </a>
+
+        </nav>
+
+
+        <div class="header-action">
+
+            <a href="#programs" class="btn btn-red">
+                Admissions Open
+            </a>
+
+        </div>
+
+
+        <!-- CSS ONLY MOBILE MENU -->
+
+        <div class="mobile-toggle">
+
+            <input type="checkbox"
+                   id="menu-toggle"
+                   hidden>
+
+            <label for="menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+
+            <div class="mobile-menu">
+
+                <a href="#home">Home</a>
+
+                <a href="#programs">Programs</a>
+
+                <a href="#schools">Schools</a>
+
+                <a href="#assessments">Assessments</a>
+
+                <a href="#calendar">Academic Calendar</a>
+
+                <a href="#policies">Policies & Handbooks</a>
+
+                <a href="#whychooseus">Why Choose Us?</a>
+
+                <a href="#regulations">Regulations</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<main>
+
+
+<!-- ============================================================
+     HOME
+============================================================ -->
+
+<section id="home" class="hero">
+
+    <div class="container hero-grid">
+
+        <div>
+
+            <div class="hero-badge">
+                <i class="fa-solid fa-award"></i>
+                NAAC 'A+' Grade & NIRF Ranked Deemed University
+            </div>
+
+            <h1>
+                Academic Information
+                <span>Portal</span>
+            </h1>
+
+            <p class="hero-description">
+                Explore Vignan University's structured academic ecosystem.
+                Navigate through programs, schools, assessments,
+                academic calendars, handbooks, regulations and more.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#programs"
+                   class="btn btn-gold">
+                    Explore Programs
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+                <a href="#schools"
+                   class="btn btn-light">
+                    View Schools & Departments
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="quick-grid">
+
+            <a href="#programs" class="quick-card">
+
+                <div class="quick-icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+
+                <div>
+                    <h3>Programs</h3>
+                    <p>UG, PG, Ph.D. & Diploma</p>
+                </div>
+
+            </a>
+
+
+            <a href="#schools" class="quick-card">
+
+                <div class="quick-icon">
+                    <i class="fa-solid fa-building-columns"></i>
+                </div>
+
+                <div>
+                    <h3>Schools</h3>
+                    <p>Engineering, Sciences & Management</p>
+                </div>
+
+            </a>
+
+
+            <a href="#calendar" class="quick-card">
+
+                <div class="quick-icon">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </div>
+
+                <div>
+                    <h3>Calendar</h3>
+                    <p>Schedules & Timelines</p>
+                </div>
+
+            </a>
+
+
+            <a href="#regulations" class="quick-card">
+
+                <div class="quick-icon">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                </div>
+
+                <div>
+                    <h3>Regulations</h3>
+                    <p>Attendance & Grading</p>
+                </div>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================================================
+     PROGRAMS
+============================================================ -->
+
+<section id="programs" class="section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                Academics &gt; Programs
+            </span>
+
+            <h2>
+                Programs Offered
+            </h2>
+
+            <p>
+                Explore undergraduate, postgraduate, diploma and
+                doctoral programs designed for academic and
+                professional development.
+            </p>
+
+        </div>
+
+
+        <div class="filter-row">
+
+            <a href="#programs"
+               class="filter-link">
+                All Programs
+            </a>
+
+            <a href="#ug-programs"
+               class="filter-link">
+                Undergraduate (UG)
+            </a>
+
+            <a href="#pg-programs"
+               class="filter-link">
+                Postgraduate (PG)
+            </a>
+
+            <a href="#diploma-programs"
+               class="filter-link">
+                Diploma & Others
+            </a>
+
+            <a href="#phd-programs"
+               class="filter-link">
+                Ph.D.
+            </a>
+
+        </div>
+
+
+        <div class="program-grid">
+
+
+            <!-- PROGRAM 1 -->
+
+            <article id="ug-programs"
+                     class="card program-card">
+
+                <div>
+
+                    <div class="program-top">
+
+                        <span class="tag tag-red">
+                            Undergraduate
+                        </span>
+
+                        <span class="duration">
+                            <i class="fa-regular fa-clock"></i>
+                            4 Years
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        B.Tech - Computer Science & Engineering
+                    </h3>
+
+                    <p>
+                        Core programming, AI/ML tracks, cloud
+                        computing, data structures and industrial
+                        internship opportunities.
+                    </p>
+
+                </div>
+
+                <div class="program-bottom">
+
+                    <span class="eligibility">
+                        Eligibility: 10+2 with MPC
+                    </span>
+
+                    <a href="#program-details"
+                       class="details-link">
+                        View Details →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- PROGRAM 2 -->
+
+            <article class="card program-card">
+
+                <div>
+
+                    <div class="program-top">
+
+                        <span class="tag tag-red">
+                            Undergraduate
+                        </span>
+
+                        <span class="duration">
+                            <i class="fa-regular fa-clock"></i>
+                            4 Years
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        B.Tech - Artificial Intelligence & Data Science
+                    </h3>
+
+                    <p>
+                        Deep learning, neural networks, big data
+                        analytics, pattern recognition and computer
+                        vision.
+                    </p>
+
+                </div>
+
+                <div class="program-bottom">
+
+                    <span class="eligibility">
+                        Eligibility: 10+2 MPC
+                    </span>
+
+                    <a href="#program-details"
+                       class="details-link">
+                        View Details →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- PROGRAM 3 -->
+
+            <article id="pg-programs"
+                     class="card program-card">
+
+                <div>
+
+                    <div class="program-top">
+
+                        <span class="tag tag-blue">
+                            Postgraduate
+                        </span>
+
+                        <span class="duration">
+                            <i class="fa-regular fa-clock"></i>
+                            2 Years
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Master of Computer Applications (MCA)
+                    </h3>
+
+                    <p>
+                        Advanced software engineering, database
+                        administration, full-stack systems and
+                        enterprise cloud applications.
+                    </p>
+
+                </div>
+
+                <div class="program-bottom">
+
+                    <span class="eligibility">
+                        Eligibility: Graduation
+                    </span>
+
+                    <a href="#program-details"
+                       class="details-link">
+                        View Details →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- PROGRAM 4 -->
+
+            <article class="card program-card">
+
+                <div>
+
+                    <div class="program-top">
+
+                        <span class="tag tag-blue">
+                            Postgraduate
+                        </span>
+
+                        <span class="duration">
+                            <i class="fa-regular fa-clock"></i>
+                            2 Years
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Master of Business Administration (MBA)
+                    </h3>
+
+                    <p>
+                        Marketing, Finance, HR, Business Analytics
+                        and Operations Management specializations.
+                    </p>
+
+                </div>
+
+                <div class="program-bottom">
+
+                    <span class="eligibility">
+                        Eligibility: Graduation
+                    </span>
+
+                    <a href="#program-details"
+                       class="details-link">
+                        View Details →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- PROGRAM 5 -->
+
+            <article id="diploma-programs"
+                     class="card program-card">
+
+                <div>
+
+                    <div class="program-top">
+
+                        <span class="tag tag-gold">
+                            Diploma
+                        </span>
+
+                        <span class="duration">
+                            <i class="fa-regular fa-clock"></i>
+                            3 Years
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Polytechnic / Engineering Diplomas
+                    </h3>
+
+                    <p>
+                        Practical engineering diplomas in Computer,
+                        Mechanical, Electrical and Civil disciplines.
+                    </p>
+
+                </div>
+
+                <div class="program-bottom">
+
+                    <span class="eligibility">
+                        Eligibility: 10th Standard
+                    </span>
+
+                    <a href="#program-details"
+                       class="details-link">
+                        View Details →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- PROGRAM 6 -->
+
+            <article id="phd-programs"
+                     class="card program-card">
+
+                <div>
+
+                    <div class="program-top">
+
+                        <span class="tag tag-purple">
+                            Ph.D. Research
+                        </span>
+
+                        <span class="duration">
+                            <i class="fa-regular fa-clock"></i>
+                            3–5 Years
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Doctoral Research Programs (Ph.D.)
+                    </h3>
+
+                    <p>
+                        Full-time and part-time doctoral research
+                        across Engineering, Sciences, Pharmacy,
+                        Management and Humanities.
+                    </p>
+
+                </div>
+
+                <div class="program-bottom">
+
+                    <span class="eligibility">
+                        Eligibility: Post Graduation
+                    </span>
+
+                    <a href="#program-details"
+                       class="details-link">
+                        View Details →
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- CSS ONLY DETAILS -->
+
+        <div id="program-details"
+             class="card"
+             style="margin-top:25px;padding:25px;">
+
+            <h3 style="color:#0f172a;margin-bottom:8px;">
+                Program Information
+            </h3>
+
+            <p style="color:#64748b;font-size:13px;">
+                Program duration, eligibility, curriculum and
+                admission information should be verified with the
+                university's current official academic documents.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================================================
+     SCHOOLS
+============================================================ -->
+
+<section id="schools"
+         class="section"
+         style="background:#f1f5f9;">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                Academics &gt; Schools
+            </span>
+
+            <h2>
+                Schools & Departments
+            </h2>
+
+            <p>
+                Explore specialized academic schools and
+                multidisciplinary learning environments.
+            </p>
+
+        </div>
+
+
+        <div class="school-grid">
+
+
+            <article class="card school-card">
+
+                <div class="school-icon">
+                    <i class="fa-solid fa-laptop-code"></i>
+                </div>
+
+                <h3>
+                    School of Computing & Informatics
+                </h3>
+
+                <p>
+                    Computer Science, Information Technology,
+                    Artificial Intelligence, Data Science and
+                    Computer Applications.
+                </p>
+
+                <div class="school-bottom">
+                    <span>
+                        B.Tech · M.Tech · MCA
+                    </span>
+
+                    <a href="#programs">
+                        Programs →
+                    </a>
+                </div>
+
+            </article>
+
+
+            <article class="card school-card">
+
+                <div class="school-icon">
+                    <i class="fa-solid fa-gears"></i>
+                </div>
+
+                <h3>
+                    School of Engineering & Technology
+                </h3>
+
+                <p>
+                    Engineering disciplines including Mechanical,
+                    Civil, ECE, EEE, Chemical and Biotechnology.
+                </p>
+
+                <div class="school-bottom">
+                    <span>
+                        B.Tech · M.Tech
+                    </span>
+
+                    <a href="#programs">
+                        Programs →
+                    </a>
+                </div>
+
+            </article>
+
+
+            <article class="card school-card">
+
+                <div class="school-icon">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+
+                <h3>
+                    School of Management
+                </h3>
+
+                <p>
+                    Management education covering business,
+                    leadership, finance, marketing and analytics.
+                </p>
+
+                <div class="school-bottom">
+                    <span>
+                        MBA · BBA
+                    </span>
+
+                    <a href="#programs">
+                        Programs →
+                    </a>
+                </div>
+
+            </article>
+
+
+            <article class="card school-card">
+
+                <div class="school-icon">
+                    <i class="fa-solid fa-flask-vial"></i>
+                </div>
+
+                <h3>
+                    School of Pharmacy & Sciences
+                </h3>
+
+                <p>
+                    Pharmacy and science programs supported by
+                    laboratories and research facilities.
+                </p>
+
+                <div class="school-bottom">
+                    <span>
+                        B.Pharm · M.Sc
+                    </span>
+
+                    <a href="#programs">
+                        Programs →
+                    </a>
+                </div>
+
+            </article>
+
+
+            <article class="card school-card">
+
+                <div class="school-icon">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                </div>
+
+                <h3>
+                    Department of Law
+                </h3>
+
+                <p>
+                    Legal education with academic activities,
+                    practical learning and legal studies.
+                </p>
+
+                <div class="school-bottom">
+                    <span>
+                        Law Programs
+                    </span>
+
+                    <a href="#programs">
+                        Programs →
+                    </a>
+                </div>
+
+            </article>
+
+
+            <article class="card school-card">
+
+                <div class="school-icon">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                </div>
+
+                <h3>
+                    Humanities, Sciences & ITEP
+                </h3>
+
+                <p>
+                    Mathematics, Physics, Chemistry, English and
+                    integrated teacher education programs.
+                </p>
+
+                <div class="school-bottom">
+                    <span>
+                        ITEP · M.Sc · B.Sc
+                    </span>
+
+                    <a href="#programs">
+                        Programs →
+                    </a>
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================================================
+     ASSESSMENTS
+============================================================ -->
+
+<section id="assessments" class="section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                Academics &gt; Assessments
+            </span>
+
+            <h2>
+                Assessments & Examination Cell
+            </h2>
+
+            <p>
+                Information about internal evaluation,
+                semester examinations and grading.
+            </p>
+
+        </div>
+
+
+        <div class="assessment-grid">
+
+            <div class="card content-card">
+
+                <h3>
+                    <i class="fa-solid fa-award"
+                       style="color:#8b0000;"></i>
+                    Grading System
+                </h3>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Letter Grade</th>
+                                <th>Grade Points</th>
+                                <th>Performance Range</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>O — Outstanding</td>
+                                <td>10</td>
+                                <td>90% and above</td>
+                            </tr>
+
+                            <tr>
+                                <td>A+ — Excellent</td>
+                                <td>9</td>
+                                <td>80% – 89%</td>
+                            </tr>
+
+                            <tr>
+                                <td>A — Very Good</td>
+                                <td>8</td>
+                                <td>70% – 79%</td>
+                            </tr>
+
+                            <tr>
+                                <td>B+ — Good</td>
+                                <td>7</td>
+                                <td>60% – 69%</td>
+                            </tr>
+
+                            <tr>
+                                <td>B — Above Average</td>
+                                <td>6</td>
+                                <td>50% – 59%</td>
+                            </tr>
+
+                            <tr>
+                                <td>F — Fail</td>
+                                <td>0</td>
+                                <td>Below 40%</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <div class="card content-card">
+
+                <h3>
+                    <i class="fa-solid fa-bullhorn"
+                       style="color:#8b0000;"></i>
+                    Assessment Structure
+                </h3>
+
+
+                <div class="assessment-box">
+
+                    <h4>
+                        Internal Assessment
+                    </h4>
+
+                    <p>
+                        Internal examinations, quizzes,
+                        assignments and academic activities.
+                    </p>
+
+                </div>
+
+
+                <div class="assessment-box">
+
+                    <h4>
+                        Semester End Examination
+                    </h4>
+
+                    <p>
+                        End-semester examinations conducted
+                        according to the academic schedule.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================================================
+     CALENDAR
+============================================================ -->
+
+<section id="calendar"
+         class="section"
+         style="background:#f1f5f9;">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                Academics &gt; Calendar
+            </span>
+
+            <h2>
+                Academic Calendar
+            </h2>
+
+            <p>
+                Key academic activities, registration,
+                examinations and vacation periods.
+            </p>
+
+        </div>
+
+
+        <div class="calendar-tabs">
+
+            <a href="#odd-semester"
+               class="calendar-tab">
+                Odd Semester · July – December
+            </a>
+
+            <a href="#even-semester"
+               class="calendar-tab">
+                Even Semester · January – May
+            </a>
+
+        </div>
+
+
+        <div class="card calendar-card">
+
+
+            <!-- ODD SEMESTER -->
+
+            <div id="odd-semester">
+
+                <h3 style="margin-bottom:25px;color:#0f172a;">
+                    Odd Semester Schedule
+                </h3>
+
+                <div class="timeline">
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-date">
+                            July 1 – July 5
+                        </div>
+
+                        <h4>
+                            Registration & Course Enrollment
+                        </h4>
+
+                    </div>
+
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-date">
+                            July 8
+                        </div>
+
+                        <h4>
+                            Commencement of Classes
+                        </h4>
+
+                    </div>
+
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-date">
+                            September
+                        </div>
+
+                        <h4>
+                            First Mid-Term Examinations
+                        </h4>
+
+                    </div>
+
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-date">
+                            December
+                        </div>
+
+                        <h4>
+                            End-Semester Examinations
+                        </h4>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <hr style="border:0;border-top:1px solid #e2e8f0;margin:40px 0;">
+
+
+            <!-- EVEN SEMESTER -->
+
+            <div id="even-semester">
+
+                <h3 style="margin-bottom:25px;color:#0f172a;">
+                    Even Semester Schedule
+                </h3>
+
+                <div class="timeline">
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-date">
+                            January
+                        </div>
+
+                        <h4>
+                            Even Semester Registration
+                        </h4>
+
+                    </div>
+
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-date">
+                            March
+                        </div>
+
+                        <h4>
+                            Mid-Term Examinations
+                        </h4>
+
+                    </div>
+
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-date">
+                            May
+                        </div>
+
+                        <h4>
+                            End-Semester Examinations
+                        </h4>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================================================
+     POLICIES
+============================================================ -->
+
+<section id="policies" class="section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                Academics &gt; Policies
+            </span>
+
+            <h2>
+                Policies & Handbooks
+            </h2>
+
+            <p>
+                Academic guides, student policies, conduct rules
+                and institutional documents.
+            </p>
+
+        </div>
+
+
+        <div class="policy-list">
+
+
+            <div class="card policy-card">
+
+                <div class="policy-info">
+
+                    <div class="policy-icon">
+                        <i class="fa-solid fa-book-bookmark"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Student Handbook & Code of Conduct
+                        </h3>
+
+                        <p>
+                            Campus rules, academic guidelines,
+                            library information and student amenities.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <a href="#policy-message"
+                   class="btn btn-red">
+                    View
+                </a>
+
+            </div>
+
+
+            <div class="card policy-card">
+
+                <div class="policy-info">
+
+                    <div class="policy-icon">
+                        <i class="fa-solid fa-house-laptop"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Hostel Rules & Mess Regulations
+                        </h3>
+
+                        <p>
+                            Hostel residence rules, timing protocols
+                            and mess guidelines.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <a href="#policy-message"
+                   class="btn btn-red">
+                    View
+                </a>
+
+            </div>
+
+
+            <div class="card policy-card">
+
+                <div class="policy-info">
+
+                    <div class="policy-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Anti-Ragging & Equal Opportunity Policy
+                        </h3>
+
+                        <p>
+                            Institutional guidelines regarding
+                            student safety and equal opportunity.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <a href="#policy-message"
+                   class="btn btn-red">
+                    View
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div id="policy-message"
+             class="card"
+             style="max-width:900px;margin:25px auto 0;padding:20px;">
+
+            <strong style="color:#0f172a;">
+                Document Information
+            </strong>
+
+            <p style="font-size:12px;color:#64748b;margin-top:5px;">
+                Connect these buttons to the actual PDF documents
+                when the official files are available.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================================================
+     WHY CHOOSE US
+============================================================ -->
+
+<section id="whychooseus"
+         class="section"
+         style="background:#f1f5f9;">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                Academics &gt; Why Choose Us
+            </span>
+
+            <h2>
+                Why Choose Vignan University?
+            </h2>
+
+            <p>
+                Explore institutional strengths, academic
+                opportunities and research-oriented learning.
+            </p>
+
+        </div>
+
+
+        <div class="features-grid">
+
+
+            <div class="card feature-card">
+
+                <div class="feature-icon">
+                    <i class="fa-solid fa-award"></i>
+                </div>
+
+                <h3>
+                    Academic Excellence
+                </h3>
+
+                <p>
+                    Focus on structured academic programs,
+                    quality teaching and continuous learning.
+                </p>
+
+            </div>
+
+
+            <div class="card feature-card">
+
+                <div class="feature-icon">
+                    <i class="fa-solid fa-briefcase"></i>
+                </div>
+
+                <h3>
+                    Career Opportunities
+                </h3>
+
+                <p>
+                    Academic programs can include internships,
+                    industry exposure and career development
+                    activities.
+                </p>
+
+            </div>
+
+
+            <div class="card feature-card">
+
+                <div class="feature-icon">
+                    <i class="fa-solid fa-flask-vial"></i>
+                </div>
+
+                <h3>
+                    Research & Innovation
+                </h3>
+
+                <p>
+                    Research laboratories, projects and innovation
+                    activities support multidisciplinary learning.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================================================
+     REGULATIONS
+============================================================ -->
+
+<section id="regulations" class="section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                Academics &gt; Regulations
+            </span>
+
+            <h2>
+                Academic Regulations
+            </h2>
+
+            <p>
+                Important academic rules and guidelines presented
+                using HTML5 native expandable sections.
+            </p>
+
+        </div>
+
+
+        <div class="accordion-list">
+
+
+            <details>
+
+                <summary>
+                    1. Attendance Requirements & Condonation
+                </summary>
+
+                <div class="accordion-content">
+
+                    <p>
+                        Students should follow the attendance
+                        requirements prescribed by the applicable
+                        academic regulations.
+                    </p>
+
+                    <ul>
+                        <li>
+                            Minimum attendance requirements may
+                            apply for semester examinations.
+                        </li>
+
+                        <li>
+                            Medical or other permitted condonation
+                            procedures may require supporting documents.
+                        </li>
+
+                        <li>
+                            Students should refer to the latest
+                            official university regulations.
+                        </li>
+                    </ul>
+
+                </div>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    2. Continuous Internal Evaluation
+                </summary>
+
+                <div class="accordion-content">
+
+                    <p>
+                        Continuous Internal Evaluation may include
+                        internal examinations, quizzes, assignments,
+                        presentations and other academic activities.
+                    </p>
+
+                </div>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    3. Fee Refund Policy
+                </summary>
+
+                <div class="accordion-content">
+
+                    <p>
+                        Fee refund procedures are subject to the
+                        applicable university rules and regulatory
+                        requirements.
+                    </p>
+
+                </div>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    4. Student Code of Conduct
+                </summary>
+
+                <div class="accordion-content">
+
+                    <p>
+                        Students are expected to follow institutional
+                        policies, academic integrity requirements and
+                        campus conduct guidelines.
+                    </p>
+
+                </div>
+
+            </details>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+
+            <div>
+
+                <div class="footer-brand">
+
+                    <div class="footer-logo">
+                        VU
+                    </div>
+
+                    <span class="footer-title">
+                        Vignan University
+                    </span>
+
+                </div>
+
+                <p class="footer-text">
+                    Vignan's Foundation for Science, Technology &
+                    Research, Vadlamudi, Guntur – 522213,
+                    Andhra Pradesh, India.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Academics
+                </h4>
+
+                <a href="#programs">
+                    Programs Offered
+                </a>
+
+                <a href="#schools">
+                    Schools & Departments
+                </a>
+
+                <a href="#assessments">
+                    Assessments & Exams
+                </a>
+
+                <a href="#calendar">
+                    Academic Calendar
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Support
+                </h4>
+
+                <a href="#policies">
+                    Policies & Handbooks
+                </a>
+
+                <a href="#whychooseus">
+                    Why Choose Us?
+                </a>
+
+                <a href="#regulations">
+                    Academic Regulations
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Contact
+                </h4>
+
+                <a href="tel:+918632344700">
+                    Phone: +91 863-2344700
+                </a>
+
+                <a href="mailto:info@vignan.ac.in">
+                    Email: info@vignan.ac.in
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Vignan's Foundation for Science,
+            Technology & Research. All rights reserved.
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+</body>
+</html>
+```
